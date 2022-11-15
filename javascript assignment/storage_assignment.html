@@ -1,0 +1,94 @@
+
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>storage check</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="margin:20px;">
+        <label for="local" style="font-size:20px">localStorage:</label>
+        <input type="number" value=0 id="result1">
+        <input type="button" value="add" name="local" onclick="linc()" style="margin-left:33px;margin-right:10px">
+        <input type="button" value="remove" name="local" onclick="ldec()">
+        </div>
+        <div style="margin:20px">
+        <label for="session" style="font-size:20px">sessionStorage:</label>
+        <input type="number" value=0 id="result2">
+        <input type="button" value="add" name="session" onclick="sinc()" style="margin-left:15px;margin-right:10px">
+        <input type="button" value="remove" name="session" onclick="sdec()">
+        </div>
+        <script>
+            if(localStorage.getItem("count"))
+            {
+                document.getElementById("result1").value=localStorage.getItem("count");
+            }
+            else{
+                document.getElementById("result1").value=0;
+            }
+            if(sessionStorage.getItem("count"))
+            {
+                document.getElementById("result2").value=sessionStorage.getItem("count");
+            }
+            else{
+                document.getElementById("result2").value=0;
+            }
+            function linc()
+            {
+                let l=localStorage.length;
+                if(l==0){
+                    localStorage.setItem("count",1);
+                    document.getElementById("result1").value=localStorage.getItem("count");
+                }
+                else{
+                    localStorage.setItem("count",parseInt(localStorage.getItem("count"))+1);
+                    document.getElementById("result1").value=localStorage.getItem("count");
+                }
+
+            }
+            function ldec()
+            {
+                let l=localStorage.length;
+                if(l>0){
+                    localStorage.setItem("count",localStorage.getItem("count")-1);
+                    document.getElementById("result1").value=localStorage.getItem("count");
+                    if(localStorage.getItem("count")==0)
+                    {
+                        localStorage.removeItem("count")
+                    }
+                }
+                else{
+                    document.getElementById("result1").value=0;
+                }
+            }
+            function sinc()
+            {
+                let l=sessionStorage.length;
+                if(!sessionStorage.getItem("count")){
+                    sessionStorage.setItem("count",1);
+                    document.getElementById("result2").value=sessionStorage.getItem("count");
+                }
+                else{
+                    sessionStorage.setItem("count",parseInt(sessionStorage.getItem("count"))+1);
+                    document.getElementById("result2").value=sessionStorage.getItem("count");
+                }
+            }
+            function sdec()
+            {
+                let l=sessionStorage.length;
+                if(l>0){
+                    sessionStorage.setItem("count",sessionStorage.getItem("count")-1);
+                    document.getElementById("result2").value=sessionStorage.getItem("count");
+                    if(sessionStorage.getItem("count")==0)
+                    {
+                        sessionStorage.removeItem("count")
+                    }
+                }
+                else{
+                    document.getElementById("result2").value=0;
+                }
+            }
+
+        </script>
+    </body>
+</html>
