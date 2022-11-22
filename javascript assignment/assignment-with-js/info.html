@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>introduction</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="dnav">
+            
+        </div>
+        
+        <div id="me">
+            <h1>Hello!</h1>
+            <p>Hi, i'm saicharan</p>
+            <p>I am 21 years old and was born on 14 march 2002. I am a very passionate person and very much intrested in learning new things.
+                I am a person who this that life is limitless. we experience new things and as we continue to experience them repeatedly the feel changes every time. 
+            Thats why i think we should explore as much we want and as many times that we want because every movement in our life makes us what we are today.</p>
+            <p>One of the ways that i learnet to explore about my self is by coding. when i am coding i try to view the problem in as many ways that are possible it may take time but 
+                i can know what i'm capalbe of and find new ways to solve a problem it may some time the wrong solution to a perticular problem but it can be a best solution for other problems
+            </p>
+            <p>I love to code and solve different puzzels and watch anime. These are the main reason that i choose b tech and computer science engineering. It is beautiful to think that we can build a machine that can talk and act like us because of the knowledge thet we use to 
+                code the machine and develop a machine that can do what a normal human can do using our wonderful brain.
+            </p>
+            <p>Another thing that is a major part of my life is my family that thought me everything that i know today every part of my life have an impact on me everything that i have learnt made me what i am today.
+                 My family encouraged me to learn and experience life in a beautiful way.
+            </p>
+        
+        </div>
+        <p id="intro" onclick="popopen()">Introduce yourself</p>
+        <div id="intro-popup">
+            <textarea rows="20" cols="30" placeholder="introduce your self"></textarea>
+            <p id="mess-send" onclick="send()">send</p>
+            <p id="pop-close" onclick="popclose()">close</p>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            change('a2');
+            setTimeout(()=>{document.querySelector("#intro").style.display="block"},1000)
+            setTimeout(()=>{document.querySelector("#intro-popup").style.display="block"},1001)
+        </script>
+    </body>
+</html>
