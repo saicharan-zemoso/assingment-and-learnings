@@ -1,0 +1,193 @@
+body{
+    display:grid;
+    grid-template-columns:30% 71%;
+    height:100%;
+    width:98%;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-right:0px;
+}
+#left-table{
+    border-right:1px solid #555555;
+    height:100%;
+    
+}
+#menu
+{
+    border-left:1px solid #555555;
+    padding-left:20px;
+    margin-right:0px;
+    height:100%;
+    overflow:scroll;
+}
+html
+{
+    height:100%;
+    width:100%;
+}
+#table-search
+{
+    margin-right:15px;
+    width:-webkit-fill-available;
+    height:30px;
+    border-radius:20px;
+}
+#menu-search{
+    width:-webkit-fill-available;
+    height:30px;
+    border-radius:20px;
+}
+.btables{
+    border:2px solid #555555;
+    border-radius:10px;
+    margin-top:20px;
+    margin-right:5%;
+    padding-left:5px;
+    list-style-type: none;
+}
+.menu-food{
+    border:2px solid #555555;
+    margin-top:20px;
+    padding-left:6px;
+    border-radius:9px;
+    list-style-type:none;
+}
+#beverages
+{
+    display:block;
+}
+#soups{
+    display: block;
+}
+#starters{
+    display: block;
+}
+#main-course{
+    display: block;
+}
+#currys{
+    display: block;
+}
+#deserts{
+    display: block;
+}
+ul{
+    padding-left:0px;
+}
+#t1b1{
+    display:none;
+    position: fixed;
+    top:30%;
+    left:40%;
+    z-index:9;
+    border:1px solid #555555;
+    background-color: #ffffff;
+    width:30%;
+    height:40%;
+
+
+}
+#t2b1{
+    display:none;
+    position: fixed;
+    top:30%;
+    left:40%;
+    z-index:9;
+    border:1px solid #555555;
+    background-color: #ffffff;
+    width:30%;
+    height:40%;
+
+
+}
+#t3b1{
+    display:none;
+    position: fixed;
+    top:30%;
+    left:40%;
+    z-index:9;
+    border:1px solid #555555;
+    background-color: #ffffff;
+    width:30%;
+    height:40%;
+
+
+}
+#t1b1 div table
+{
+    width:100%;
+    height:30px;
+    overflow-y: hidden;
+}
+#t2b1 div table
+{
+    width:100%;
+    height:30px;
+    overflow-y: hidden;
+}
+#t3b1 div table
+{
+    width:100%;
+    height:30px;
+    overflow-y: hidden;
+}
+#t1b1 div table tr td
+{
+    width:33%;
+    height:30px;
+    overflow-y: hidden;
+}
+#t2b1 div table tr td
+{
+    width:33%;
+    height:30px;
+    overflow-y: hidden;
+}
+#t3b1 div table tr td
+{
+    width:33%;
+    height:30px;
+    overflow-y: hidden;
+}
+
+#t1b1 div
+{
+    width:100%;
+    height:60%;
+    overflow-y: scroll;
+}
+#t2b1 div
+{
+    width:100%;
+    height:60%;
+    overflow-y:scroll;
+}
+#t3b1 div
+{
+    width:100%;
+    height:60%;
+    overflow-y: scroll;
+}
+#t1b1 .t1b1n1,#t2b1 .t1b1n1,#t3b1 .t1b1n1
+{
+    background-color: #117df9;
+    width:100%;
+    height:50px;
+    overflow: hidden;
+    margin: 0px;
+}
+#t1b1 .t1b1n1 h1,#t2b1 .t1b1n1 h1,#t3b1 .t1b1n1 h1
+{
+    display:inline-block;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+#t1b1 .t1b1n1 button,#t2b1 .t1b1n1 button,#t3b1 .t1b1n1 button
+{
+    margin-top:7px;
+    float:right;
+    margin-right:5px;
+}
+
