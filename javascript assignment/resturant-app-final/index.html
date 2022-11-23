@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>resturant app</title>
+    </head>
+    <body>
+            <div id="left-table">
+                <h1>Tables</h1>
+                <input type="search" id="table-search" placeholder="search table" onkeyup="searchTable()">
+                    <div class="btables" id="table1" onclick="popup('#t1b1')"> 
+                        <p>Table1</p>
+                        <p>Bill:<span>0</span></p>
+                    </div>
+                    <div  class="btables" id="table2" onclick="popup('#t2b1')">
+                        <p>Table2</p>
+                        <p>Bill:<span>0</span></p>
+                    </div>
+                    <div class="btables" id="table3" onclick="popup('#t3b1')">
+                        <p>Table3</p>
+                        <p>Bill:<span>0</span></p>
+                    </div>
+                <div id="t1b1">
+                    <ul class="t1b1n1">
+                        <h1>Table1</h1>
+                        <button onclick="popclose('#t1b1')">close</button>
+                    </ul>
+                    <div>
+                        <table>
+                            <tr><td>item of t1</td><td>count</td><td>remove</td></tr>
+                        </table>
+                        
+                    </div>
+                    <p>Total bill:<span id="t1b1s">0</span></p>
+                    <input type="button" onclick="showbill('table1')" value="generate bill"/>
+                </div>
+                <div id="t2b1">
+                    <ul class="t1b1n1">
+                        <h1>Table2</h1>
+                        <button onclick="popclose('#t2b1')">close</button>
+                    </ul>
+                    <div>
+                        <table>
+                            <tr><td>item of t2</td><td>count</td><td>remove</td></tr>
+                        </table>
+                    </div>
+                    <p>Total bill:<span id="t2b1s">0</span></p>
+                    <input type="button" onclick="showbill('table2')" value="generate bill"/>
+                </div>
+                <div id="t3b1">
+                    <ul class="t1b1n1">
+                        <h1>Table3</h1>
+                        <button onclick="popclose('#t3b1')">close</button>
+                    </ul>
+                    <div>
+                        <table>
+                            <tr><td>item of t3</td><td>count</td><td>remove</td></tr>
+                        </table>
+                    </div>
+                    <p>Total bill:<span id="t3b1s">0</span></p>
+                    <input type="button" onclick="showbill('table3')" value="generate bill"/>
+                </div>
+            </div>
+            <div id="menu">
+                <h1>Menu</h1>
+                <input type="search" id="menu-search" placeholder="search for food" onkeyup="searchItem()">
+                <ul id="soups">  
+                    <h2>Soups</h2>
+                    <li class="menu-food" id="tomato-soup">
+                        <p>Tomato soup</p>
+                        <p>price:30</p>
+                    </li>
+                    <li class="menu-food" id="corn-soup">
+                        <p>Corn soup</p>
+                        <p>price:30</p>
+                    </li>
+                    <li class="menu-food" id="chicken-soup">
+                        <p>Chicken soup</p>
+                        <p>price:50</p>
+                    </li>
+                </ul>
+                <ul id="starters">
+                    <h2>Starters</h2>
+                    <li class="menu-food" id="spring-rolls">
+                        <p>Spring rolls</p>
+                        <p>price:40</p>
+                    </li>
+                    <li class="menu-food" id="manchuria">
+                        <p>Manchuria</p>
+                        <p>price:80</p>
+                    </li>
+                    <li class="menu-food" id="paneer-tikka">
+                        <p>Paneer tikka</p>
+                        <p>price:90</p>
+                    </li>
+                    <li class="menu-food" id="french-fries">
+                        <p>French fries</p>
+                        <p>price:100</p>
+                    </li>
+                </ul>
+                <ul id="currys">
+                    <h2>Currys</h2>
+                    <li class="menu-food" id="paneer-butter-masala">
+                        <p>Paneer butter masala </p>
+                        <p>price:180</p>
+                    </li>
+                    <li class="menu-food" id="aloo-masala">
+                        <p>Aloo masala</p>
+                        <p>price:160</p>
+                    </li>
+                    <li class="menu-food" id="gobi-masala">
+                        <p>Gobi masala</p>
+                        <p>price:150</p>
+                    </li>
+                    <li class="menu-food" id="kadai-paneer">
+                        <p>Kadai paneer</p>
+                        <p>price:190</p>
+                    </li>
+                    <li class="menu-food" id="kaju-paneer">
+                        <p>Kaju paneer</p>
+                        <p>price:210</p>
+                    </li>
+                    <li class="menu-food" id="mixed-vegetable">
+                        <p>Mixed vegetable</p>
+                        <p>price:150</p>
+                    </li>
+                </ul>
+                <ul id="rotis-naans">
+                    <h2>rotis and naan</h2>
+                    <li class="menu-food" id="tandoori-roti">
+                        <p>Tandoori roti</p>
+                        <p>price:20</p>
+                    </li>
+                    <li class="menu-food" id="butter-roti">
+                        <p>Butter roti</p>
+                        <p>price:25</p>
+                    </li>
+                    <li class="menu-food" id="naan">
+                        <p>naan</p>
+                        <p>price:20</p>
+                    </li>
+                </ul>
+                <ul id="main-course">
+                    <h2>Main Course</h2>
+                    <li class="menu-food" id="veg-biryani">
+                        <p>Veg biryani</p>
+                        <p>price:230</p>
+                    </li>
+                    <li class="menu-food" id="chicken-biryani"> 
+                        <p>Chicken biryani</p>
+                        <p>price:260</p>
+                    </li>
+                    <li class="menu-food" id="mutton-biryani">
+                        <p>Mutton biryani</p>
+                        <p>price:290</p>
+                    </li>
+                    <li class="menu-food" id="veg-fried-rice">
+                        <p>Veg fried rice</p>
+                        <p>price:180</p>
+                    </li>
+                    <li class="menu-food" id="egg-fried-rice">
+                        <p>Egg fried rice</p>
+                        <p>price:200</p>
+                    </li>
+                    <li class="menu-food" id="chicken-fried-rice">
+                        <p>Chicken fried rice</p>
+                        <p>price:210</p>
+                    </li>
+                </ul>
+                <ul id="deserts"> 
+                    <h2>Desertss</h2>
+                    <li class="menu-food" id="chocolate-icecream">
+                        <p>Chocolate icecream</p>
+                        <p>price:45</p>
+                    </li>
+                    <li class="menu-food" id="chocobar">
+                        <p>Chocobar</p>
+                        <p>price:30</p>
+                    </li>
+                    <li class="menu-food" id="cheese-cake">
+                        <p>Cheese cake</p>
+                        <p>price:60</p>
+                    </li>
+                    <li class="menu-food" id="pudding">
+                        <p>Pudding</p>
+                        <p>price:65</p>
+                    </li>
+                    <li class="menu-food" id="choco-lava-cake">
+                        <p>Choco lava cake</p>
+                        <p>price:80</p>
+                    </li>
+                </ul>
+                <ul id="beverages">
+                    <h2>Beverages</h2>
+                    <li class="menu-food" id="water">
+                        <p>Water</p>
+                        <p>price:20</p>
+                    </li>
+                    <li class="menu-food" id="cold-water">
+                        <p>Cold Water</p>
+                        <p>price:30</p>
+                    </li>
+                    <li class="menu-food" id="mojito">
+                        <p>Mojito</p>
+                        <p>price:40</p>
+                    </li>
+                    <li class="menu-food" id="cola">
+                        <p>Cola</p>
+                        <p>price:25</p>
+                    </li>
+                    <li class="menu-food" id="sprite">
+                        <p>Sprite</p>
+                        <p>price:25</p>
+                    </li>
+                    <li class="menu-food" id="coffee">
+                        <p>Coffee</p>
+                        <p>price:30</p>
+                    </li>
+                </ul>
+            </div>
+            <script src="script.js"></script>
+    </body>
+</html>
