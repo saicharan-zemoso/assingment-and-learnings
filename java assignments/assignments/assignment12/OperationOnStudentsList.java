@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class OperationOnStudentsList {
+public class OperationOnStudentsList implements OperationsInterface {
     List<Student> listOfStudents;
     OperationOnStudentsList()
     {
@@ -28,38 +28,38 @@ public class OperationOnStudentsList {
         listOfStudents.add(new Student(266, "Sanvi Pandey", 17, "Female", "Electric", 2019, 72.4));
         listOfStudents.add(new Student(277, "Anuj Chettiar", 18, "Male", "Computer Science", 2017, 57.5));
     }
-    void printDepartments()
+    public void printDepartments()
     {
         System.out.println("The departments are:");
         listOfStudents.stream().map(student->student.engDepartment).distinct().forEach(System.out::println);
     }
-    void studentsEnrolledAfter2018()
+    public void studentsEnrolledAfter2018()
     {
         System.out.println("\nThe students enrolled after 2018 are: ");
         listOfStudents.stream().filter(student -> student.yearOfEnrollment>2018?true:false).map(student->student.name).forEach(System.out::println);
     }
-    void maleCSEStudents()
+    public void maleCSEStudents()
     {
         System.out.println("\nThe male students in CSE are: ");
         listOfStudents.stream().filter(student -> student.gender.equals("Male")&&student.engDepartment.equals("Computer Science")?true:false).forEach(System.out::println);
     }
-    void genderCount()
+    public void genderCount()
     {
         Map<String,List<Student>> grouped=listOfStudents.stream().collect(Collectors.groupingBy(student -> student.gender));
         System.out.println("\nMale students count is "+grouped.get("Male").size()+" female students count is "+grouped.get("Female").size());
 
     }
-    void averageAgeOfStudents()
+    public void averageAgeOfStudents()
     {
         Map<String,List<Student>> grouped=listOfStudents.stream().collect(Collectors.groupingBy(student -> student.gender));
         System.out.println("\nthe average age of male students is "+grouped.get("Male").stream().map(student -> student.age).reduce((s1,s2)->s1+s2).get()/Double.valueOf(grouped.get("Male").size()));
         System.out.println("\nthe average age of female students is "+grouped.get("Female").stream().map(student -> student.age).reduce((s1,s2)->s1+s2).get()/Double.valueOf(grouped.get("Female").size()));
     }
-    void studentWithHighestPercentage()
+    public void studentWithHighestPercentage()
     {
         System.out.println("\ndetails of student with highest percentage is "+listOfStudents.stream().max((s1,s2)->s1.perTillDate>s2.perTillDate?1:-1).get());
     }
-    void noOfStudentsInDepartments()
+    public void noOfStudentsInDepartments()
     {
         Map<String,List<Student>> groupedByDepartment=getGroupedDepartment();
         for(String s1:groupedByDepartment.keySet())
@@ -67,7 +67,7 @@ public class OperationOnStudentsList {
             System.out.println("\nThe no of students in "+s1+" department is "+groupedByDepartment.get(s1).size());
         }
     }
-    void averageOfDepartment()
+    public void averageOfDepartment()
     {
         Map<String,List<Student>> groupedByDepartment=getGroupedDepartment();
         for(String s1:groupedByDepartment.keySet())
@@ -75,17 +75,17 @@ public class OperationOnStudentsList {
             System.out.println("\nThe average percentage of "+s1+" department is "+groupedByDepartment.get(s1).stream().map(student -> student.perTillDate).reduce((student1,student2)->student1+student2).get()/groupedByDepartment.get(s1).size());
         }
     }
-    void minAgeInElectronic()
+    public void minAgeInElectronic()
     {
         System.out.println("\ndetails of youngest student in electronic department is "+listOfStudents.stream().filter(student -> student.engDepartment.equals("Electronic")).min((s1,s2)->s1.age>s2.age?1:-1).get());
     }
-    void genderCountInCSE()
+    public void genderCountInCSE()
     {
         Map<String,List<Student>> groupedByDepartment=getGroupedDepartment();
         System.out.println("\nthe no of male students in computer science department is "+groupedByDepartment.get("Computer Science").stream().filter(student -> student.gender.equals("Male")).count());
         System.out.println("\nthe no of female students in computer science department is "+groupedByDepartment.get("Computer Science").stream().filter(student -> student.gender.equals("Female")).count());
     }
-    Map<String,List<Student>> getGroupedDepartment()
+    public Map<String,List<Student>> getGroupedDepartment()
     {
         Map<String,List<Student>> groupedByDepartment=listOfStudents.stream().collect(Collectors.groupingBy(student -> student.engDepartment));
         return groupedByDepartment;

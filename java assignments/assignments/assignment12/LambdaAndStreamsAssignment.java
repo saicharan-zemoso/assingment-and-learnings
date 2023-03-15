@@ -10,7 +10,7 @@ public class LambdaAndStreamsAssignment {
 
     public static void main(String args[])
     {
-        OperationOnStudentsList obj= new OperationOnStudentsList();
+        OperationsInterface obj= new OperationOnStudentsList();
 
         //stream to print all departments
         obj.printDepartments();
