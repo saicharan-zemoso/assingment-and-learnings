@@ -1,7 +1,7 @@
 package com.assignments.assignment9;
 
 import java.util.Scanner;
-import java.util.regex.*;
+import java.util.regex.Pattern;
 public class AssignmentNine {
     public static void main(String args[])
     {
@@ -23,7 +23,7 @@ public class AssignmentNine {
         }
         else
         {
-            System.out.println("The given sentence\n"+input+"\ndoes not start with capital letter and ends with a period");
+            System.out.println("The given sentence\n"+input+"\ndoes not start with capital letter and does not ends with a period as well");
         }
 
     }
