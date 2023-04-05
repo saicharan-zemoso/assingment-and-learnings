@@ -1,0 +1,138 @@
+assignment 5
+
+select count(distinct film_id) as no_of_films_SEANWILLIAMS_acceted from film_actor inner join actor on actor.actor_id=film_actor.actor_id where actor.first_name="SEAN" and actor.last_name="WILLIAMS";
+
+
+assignment 4
+
+select distinct customer.first_name,customer.last_name from customer inner join rental on customer.customer_id=rental.customer_id
+inner join inventory on rental.inventory_id=inventory.inventory_id
+inner join film_actor on inventory.film_id=film_actor.film_id
+inner join actor on actor.actor_id=film_actor.actor_id
+inner join address on customer.address_id=address.address_id
+inner join city on city.city_id=address.city_id
+inner join country on city.country_id=country.country_id
+where country.country="Canada" and actor.first_name="NICK" and actor.last_name="WAHLBERG";
+
+assignment 3
+
+select distinct first_name,last_name from customer inner join rental on customer.customer_id=rental.customer_id
+inner join inventory on rental.inventory_id=inventory.inventory_id
+inner join film_category on inventory.film_id=film_category.film_id
+inner join category on category.category_id=film_category.category_id
+inner join address on customer.address_id=address.address_id
+inner join city on city.city_id=address.city_id
+inner join country on city.country_id=country.country_id
+where country.country="India" and category.name="sports";
+
+assignment 2
+
+select title ,count(film.title) from rental inner join inventory on rental.inventory_id=inventory.inventory_id 
+inner join film on inventory.film_id=film.film_id inner join film_category on film.film_id=film_category.film_id 
+inner join category on category.category_id=film_category.category_id
+where category.name="horror" group by film.title order by count(film.title) desc limit 3;
+
+assignment 1
+
+select title from  category inner join film_category on category.category_id=film_category.category_id inner join film on film_category.film_id=film.film_id 
+where film.rating="PG-13" and category.name="comedy";
+
+
+
+
+
+
+
+
+
+
+
+
+sql assignment part2
+
+q1
+
+select count(*) from film_category inner join film on film.film_id=film_category.film_id
+inner join category on film_category.category_id=category.category_id
+where category.name="Documentary" and find_in_set('Deleted Scenes',film.special_features)>0;
+
+select count(*) from film_category inner join film on film.film_id=film_category.film_id
+inner join category on film_category.category_id=category.category_id
+where category.name="Documentary" and film.special_features like "%Deleted Scenes%";
+
+q2
+
+select count(*) from rental inner join inventory on rental.inventory_id=inventory.inventory_id
+inner join film_category on inventory.film_id=film_category.film_id
+inner join category on category.category_id=film_category.category_id
+inner join staff on rental.staff_id=staff.staff_id
+where category.name="sci-fi" and staff.first_name="jon" and staff.last_name="stephens";
+
+q3
+
+select sum(amount) as sales_on_animation_movies from payment,rental,inventory,film_category,category
+where 
+payment.rental_id=rental.rental_id and
+rental.inventory_id=inventory.inventory_id and
+inventory.film_id=film_category.film_id and
+film_category.category_id=category.category_id and
+category.name="animation";
+
+select sum(amount) as sales_on_animation_movies from payment
+inner join rental on payment.rental_id=rental.rental_id 
+inner join inventory on rental.inventory_id=inventory.inventory_id 
+inner join film_category on inventory.film_id=film_category.film_id 
+inner join category on film_category.category_id=category.category_id 
+where
+category.name="animation";
+
+
+
+q4
+
+select category.name,count(*) from rental,inventory,film_category,category,customer
+where 
+rental.inventory_id=inventory.inventory_id and
+inventory.film_id=film_category.film_id and
+category.category_id=film_category.category_id and
+customer.customer_id=rental.customer_id and
+customer.first_name="PATRICIA" and 
+customer.last_name="JOHNSON"
+group by category.name 
+order by count(*) desc
+limit 3;
+
+select category.name,count(*) from rental
+inner join inventory on rental.inventory_id=inventory.inventory_id 
+inner join film_category on inventory.film_id=film_category.film_id
+inner join category on category.category_id=film_category.category_id
+inner join customer on customer.customer_id=rental.customer_id 
+where
+customer.first_name="PATRICIA" and 
+customer.last_name="JOHNSON"
+group by category.name 
+order by count(*) desc
+limit 3;
+
+
+
+
+q5
+
+select count(*) as no_of_r_rated_movies_rented_by_susan from rental,inventory,film,customer
+where
+rental.inventory_id=inventory.inventory_id and
+inventory.film_id=film.film_id and
+rental.customer_id=customer.customer_id and
+film.rating="r" and
+customer.first_name="susan" and
+customer.last_name="wilson";
+
+select count(*) as no_of_r_rated_movies_rented_by_susan from rental
+inner join inventory on rental.inventory_id=inventory.inventory_id 
+inner join film on inventory.film_id=film.film_id
+inner join customer on rental.customer_id=customer.customer_id 
+where
+film.rating="r" and 
+customer.first_name="susan" and
+customer.last_name="wilson";
